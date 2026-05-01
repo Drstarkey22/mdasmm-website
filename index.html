@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMM — Mockup 3: Contrast Split</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #1B2A4A;
+  --navy-deep: #111D33;
+  --teal: #2A9D8F;
+  --gold: #C9A84C;
+  --gold-soft: rgba(201,168,76,0.12);
+  --white: #FFFFFF;
+  --off-white: #FAFBFC;
+  --gray-50: #F3F4F6;
+  --gray-100: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-500: #6B7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+}
+body { font-family: 'DM Sans', sans-serif; color: var(--gray-900); -webkit-font-smoothing: antialiased; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV — dark */
+header { background: var(--navy); }
+nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+.logo img { height: 36px; filter: brightness(0) invert(1); }
+.nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+.nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem; font-weight: 400; }
+.nav-cta { background: var(--gold); color: var(--navy) !important; padding: 10px 24px; border-radius: 4px; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.5px; }
+
+/* HERO — dark with gold accent */
+.hero {
+  background: var(--navy); padding: 80px 0 0; position: relative; overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+  background: linear-gradient(0deg, var(--white) 0%, transparent 100%);
+}
+.hero-inner { position: relative; z-index: 1; text-align: center; padding-bottom: 100px; }
+.hero-eyebrow {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', serif; font-size: 3.5rem; color: var(--white);
+  line-height: 1.15; margin-bottom: 20px; max-width: 680px; margin-left: auto; margin-right: auto;
+}
+.hero p { font-size: 1.05rem; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 520px; margin: 0 auto 36px; }
+.hero-buttons { display: flex; gap: 14px; justify-content: center; }
+.btn { padding: 14px 28px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; border-radius: 4px; text-decoration: none; border: none; cursor: pointer; }
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
+
+/* TRUST BAR — overlapping transition */
+.trust-bar {
+  position: relative; z-index: 2; margin-top: -48px;
+}
+.trust-inner {
+  background: var(--white); border: 1px solid var(--gray-100); border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+  display: grid; grid-template-columns: repeat(4, 1fr); padding: 36px 0;
+}
+.trust-item { text-align: center; padding: 0 24px; }
+.trust-item + .trust-item { border-left: 1px solid var(--gray-100); }
+.trust-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--navy); }
+.trust-label { font-size: 0.7rem; color: var(--gray-500); letter-spacing: 1px; text-transform: uppercase; font-weight: 500; margin-top: 2px; }
+
+/* SERVICES — white bg */
+.services { padding: 100px 0 80px; }
+.section-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.section-title { font-family: 'DM Serif Display', serif; font-size: 2.25rem; color: var(--navy); margin-bottom: 48px; }
+.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.svc {
+  padding: 36px 28px; border-right: 1px solid var(--gray-100); transition: all 0.2s;
+  border-bottom: 1px solid var(--gray-100);
+}
+.svc:nth-child(4n) { border-right: none; }
+.svc:nth-child(n+5) { border-bottom: none; }
+.svc:hover { background: var(--gold-soft); }
+.svc-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--gray-100); margin-bottom: 16px; line-height: 1; }
+.svc h3 { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+.svc p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.6; }
+
+/* ABOUT — split navy/white */
+.about { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; }
+.about-dark { background: var(--navy); padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
+.about-dark .section-label { color: var(--gold); }
+.about-dark h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--white); margin-bottom: 20px; }
+.about-dark p { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 14px; }
+.about-light { background: var(--off-white); padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; }
+.about-feat { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--gray-100); }
+.about-feat:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.about-feat h4 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+.about-feat p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.6; }
+
+/* CONTACT */
+.contact { padding: 100px 0; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+.contact h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--navy); margin-bottom: 16px; }
+.contact-info p { color: var(--gray-500); line-height: 1.7; margin-bottom: 32px; }
+.contact-detail { margin-bottom: 20px; }
+.contact-detail-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.contact-detail-value { font-size: 0.95rem; color: var(--gray-700); }
+.form { display: flex; flex-direction: column; gap: 14px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form input, .form textarea {
+  background: var(--white); border: 1px solid var(--gray-100); border-radius: 4px;
+  padding: 12px 16px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+}
+.form input:focus, .form textarea:focus { outline: none; border-color: var(--gold); }
+.form textarea { min-height: 100px; resize: vertical; }
+.form-btn { background: var(--navy); color: var(--white); border: none; padding: 14px 28px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; align-self: flex-start; }
+
+/* FOOTER */
+footer { background: var(--navy-deep); padding: 32px 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; }
+.footer-inner img { height: 24px; filter: brightness(0) invert(1); opacity: 0.4; }
+.footer-inner p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<header>
+<div class="container">
+<nav>
+  <div class="logo"><img src="logo.png" alt="SMM"></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<div class="hero-inner">
+  <div class="hero-eyebrow">Strategic Medical Management</div>
+  <h1>Where Healthcare Operations Meet Strategic Excellence</h1>
+  <p>Comprehensive management infrastructure for medical practices, imaging centers, and healthcare organizations across Texas.</p>
+  <div class="hero-buttons">
+    <a href="#services" class="btn btn-gold">Our Services</a>
+    <a href="#contact" class="btn btn-ghost">Contact Us</a>
+  </div>
+</div>
+</div>
+</section>
+
+<div class="trust-bar">
+<div class="container">
+<div class="trust-inner">
+  <div class="trust-item"><div class="trust-num">10+</div><div class="trust-label">Managed Entities</div></div>
+  <div class="trust-item"><div class="trust-num">40+</div><div class="trust-label">Team Members</div></div>
+  <div class="trust-item"><div class="trust-num">TX & KS</div><div class="trust-label">Markets Served</div></div>
+  <div class="trust-item"><div class="trust-num">100%</div><div class="trust-label">HIPAA Compliant</div></div>
+</div>
+</div>
+</div>
+
+<section class="services" id="services">
+<div class="container">
+  <div class="section-label">Services</div>
+  <div class="section-title">What We Deliver</div>
+  <div class="services-grid">
+    <div class="svc"><div class="svc-num">01</div><h3>Practice Management</h3><p>End-to-end clinic operations, staffing, scheduling, and workflow optimization.</p></div>
+    <div class="svc"><div class="svc-num">02</div><h3>Revenue Cycle</h3><p>Billing, coding, AR tracking, and lien-based care financial reporting.</p></div>
+    <div class="svc"><div class="svc-num">03</div><h3>Provider Networks</h3><p>Physician networks, credentialing, contracting, and compliance oversight.</p></div>
+    <div class="svc"><div class="svc-num">04</div><h3>Care Coordination</h3><p>Referral management and cross-provider communication.</p></div>
+    <div class="svc"><div class="svc-num">05</div><h3>Technology & Data</h3><p>EMR systems, AI workflows, analytics, HIPAA-compliant infrastructure.</p></div>
+    <div class="svc"><div class="svc-num">06</div><h3>Compliance & Risk</h3><p>HIPAA programs, cybersecurity, regulatory adherence, clinical audits.</p></div>
+    <div class="svc"><div class="svc-num">07</div><h3>Financial Strategy</h3><p>Modeling, cost analysis, entity structuring, capital planning.</p></div>
+    <div class="svc"><div class="svc-num">08</div><h3>Imaging Centers</h3><p>MRI and diagnostic imaging center operations and management.</p></div>
+  </div>
+</div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-dark">
+    <div class="section-label">About</div>
+    <h2>Built for Healthcare Complexity</h2>
+    <p>Strategic Medical Management was founded to bridge the gap between clinical excellence and operational efficiency.</p>
+    <p>Based in Dallas, Texas, we manage a network of practices, imaging centers, and healthcare entities — delivering integrated solutions across operations, finance, technology, and compliance.</p>
+  </div>
+  <div class="about-light">
+    <div class="about-feat"><h4>Data-Driven Decisions</h4><p>Real-time dashboards and analytics for complete operational visibility.</p></div>
+    <div class="about-feat"><h4>Multi-Entity Expertise</h4><p>Interconnected healthcare ecosystems with shared workflows and oversight.</p></div>
+    <div class="about-feat"><h4>PI Specialization</h4><p>Personal injury operations, lien management, and attorney coordination.</p></div>
+    <div class="about-feat"><h4>Technology-Forward</h4><p>AI-assisted workflows and custom-built platforms — not off-the-shelf.</p></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+<div class="container">
+<div class="contact-grid">
+  <div class="contact-info">
+    <div class="section-label">Contact</div>
+    <h2>Ready to Talk?</h2>
+    <p>Whether you're optimizing an existing practice or building new operational infrastructure, we'd like to hear from you.</p>
+    <div class="contact-detail">
+      <div class="contact-detail-label">Email</div>
+      <div class="contact-detail-value">info@mdasmm.com</div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-label">Hours</div>
+      <div class="contact-detail-value">Monday – Friday, 8 AM – 5 PM CST</div>
+    </div>
+  </div>
+  <form class="form" onsubmit="event.preventDefault();">
+    <div class="form-row">
+      <input type="text" placeholder="First Name">
+      <input type="text" placeholder="Last Name">
+    </div>
+    <input type="email" placeholder="Email Address">
+    <input type="text" placeholder="Organization">
+    <textarea placeholder="How can we help?"></textarea>
+    <button class="form-btn">Send Inquiry</button>
+  </form>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<div class="footer-inner">
+  <img src="logo.png" alt="SMM">
+  <p>&copy; 2026 Strategic Medical Management, LLC</p>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
