@@ -126,6 +126,65 @@ footer { background: var(--navy-deep); padding: 32px 0; }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; }
 .footer-inner img { height: 24px; filter: brightness(0) invert(1); opacity: 0.4; }
 .footer-inner p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+/* MOBILE HAMBURGER */
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.menu-toggle span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,0.8); margin: 5px 0; transition: 0.2s; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  /* NAV */
+  .menu-toggle { display: block; }
+  .nav-links {
+    display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0;
+    background: var(--navy-deep); padding: 24px; gap: 20px; z-index: 100;
+  }
+  .nav-links.open { display: flex; }
+  nav { position: relative; }
+
+  /* HERO */
+  .hero { padding: 48px 0 0; }
+  .hero-inner { padding-bottom: 72px; }
+  .hero h1 { font-size: 2.25rem; }
+  .hero p { font-size: 0.95rem; }
+  .hero-buttons { flex-direction: column; align-items: center; gap: 10px; }
+  .hero-buttons .btn { width: 100%; max-width: 260px; text-align: center; }
+
+  /* TRUST BAR */
+  .trust-bar { margin-top: -36px; }
+  .trust-inner { grid-template-columns: repeat(2, 1fr); row-gap: 24px; padding: 28px 0; }
+  .trust-item:nth-child(2) { border-left: 1px solid var(--gray-100); }
+  .trust-item:nth-child(3) { border-left: none; }
+  .trust-item:nth-child(4) { border-left: 1px solid var(--gray-100); }
+
+  /* SERVICES */
+  .services { padding: 64px 0 48px; }
+  .section-title { font-size: 1.75rem; margin-bottom: 32px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .svc { border-right: none !important; border-bottom: 1px solid var(--gray-100); }
+  .svc:last-child { border-bottom: none; }
+
+  /* ABOUT */
+  .about { grid-template-columns: 1fr; }
+  .about-dark { padding: 48px 24px; }
+  .about-dark h2 { font-size: 1.65rem; }
+  .about-light { padding: 48px 24px; }
+
+  /* CONTACT */
+  .contact { padding: 64px 0; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact h2 { font-size: 1.65rem; }
+  .form-row { grid-template-columns: 1fr; }
+
+  /* FOOTER */
+  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.85rem; }
+  .trust-num { font-size: 1.5rem; }
+  .trust-label { font-size: 0.6rem; }
+}
 </style>
 </head>
 <body>
@@ -134,6 +193,7 @@ footer { background: var(--navy-deep); padding: 32px 0; }
 <div class="container">
 <nav>
   <div class="logo"><img src="logo.png" alt="SMM"></div>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
